@@ -27,7 +27,6 @@ struct SettingsOptionModel {
 struct SettingsSwitchOptionModel {
     var iconImage: UIImage?
     var name: SettingsText
-    var text: String
     var handler: (() -> Void)
     var isOn: Bool
 }
@@ -57,7 +56,6 @@ extension ViewController {
                 model: SettingsSwitchOptionModel(
                     iconImage: UIImage(named: "Plane"),
                     name: .airplaneMode,
-                    text: "",
                     handler: { print( "did tappped PlaneSwitch" ) },
                     isOn: true)
             ),
@@ -93,7 +91,6 @@ extension ViewController {
                 model: SettingsSwitchOptionModel(
                     iconImage: UIImage(named: "Vpn"),
                     name: .vpn,
-                    text: "",
                     handler: { print( "did tappped VpnSwitch" ) },
                     isOn: true)
             ),
