@@ -13,6 +13,7 @@
 		84B9C7742A59B869005758C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84B9C7732A59B869005758C0 /* Assets.xcassets */; };
 		84B9C7772A59B869005758C0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84B9C7752A59B869005758C0 /* LaunchScreen.storyboard */; };
 		84B9C7852A59BC0C005758C0 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 84B9C7842A59BC0C005758C0 /* SnapKit */; };
+		84B9C7872A59C15C005758C0 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B9C7862A59C15C005758C0 /* Model.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		84B9C7732A59B869005758C0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		84B9C7762A59B869005758C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		84B9C7782A59B869005758C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84B9C7862A59C15C005758C0 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 			children = (
 				84B9C77E2A59BAA0005758C0 /* App */,
 				84B9C76E2A59B867005758C0 /* ViewController.swift */,
+				84B9C7882A59C168005758C0 /* Model */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -104,6 +107,14 @@
 				84B9C7752A59B869005758C0 /* LaunchScreen.storyboard */,
 			);
 			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		84B9C7882A59C168005758C0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				84B9C7862A59C15C005758C0 /* Model.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -185,6 +196,7 @@
 				84B9C76F2A59B867005758C0 /* ViewController.swift in Sources */,
 				84B9C76B2A59B867005758C0 /* AppDelegate.swift in Sources */,
 				84B9C76D2A59B867005758C0 /* SceneDelegate.swift in Sources */,
+				84B9C7872A59C15C005758C0 /* Model.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
