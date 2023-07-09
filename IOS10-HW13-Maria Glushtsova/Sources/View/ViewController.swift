@@ -64,7 +64,9 @@ extension ViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        let viewController = DetailedSettingsViewViewController()
         tableView.deselectRow(at: indexPath, animated: true)
+        navigationController?.pushViewController(viewController, animated: true)
         
         let cellType = model[indexPath.section].options[indexPath.row]
         
@@ -119,3 +121,4 @@ extension ViewController: UITableViewDataSource {
         }
     }
 }
+
