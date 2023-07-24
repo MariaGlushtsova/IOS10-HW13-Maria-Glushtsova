@@ -58,7 +58,6 @@ class SwitchTableViewCell: UITableViewCell {
         iconImage.image = model.iconImage
         name.text = model.name.rawValue
         switchView.isOn = model.isOn
-       
     }
 
     private func setupHierarchy() {
@@ -87,7 +86,6 @@ class SwitchTableViewCell: UITableViewCell {
             make.bottom.equalToSuperview().offset(-5)
             make.right.equalToSuperview().offset(-10)
         }
-
     }
 
     // MARK: - Reuse
@@ -99,7 +97,6 @@ class SwitchTableViewCell: UITableViewCell {
         name.text = nil
         switchView.isOn = false
     }
-
 }
 
 

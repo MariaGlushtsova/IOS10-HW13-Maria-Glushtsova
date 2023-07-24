@@ -86,7 +86,6 @@ class SettingsTableViewCell: UITableViewCell {
             make.bottom.equalToSuperview().offset(-5)
             make.right.equalToSuperview().offset(-10)
         }
-
     }
     
     // MARK: - Reuse
