@@ -4,5 +4,16 @@
 //
 //  Created by Admin on 6.08.23.
 //
+import UIKit
 
-import Foundation
+class DetailedSettingsViewController: UIViewController {
+    
+    static let identifier = "DetailedSettingsViewController"
+    
+    let detailedSettingsView = DetailedSettingsView()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view = detailedSettingsView
+    }
+}
