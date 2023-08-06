@@ -1,75 +1,48 @@
 //
-//  ViewController.swift
+//  MVCController.swift
 //  IOS10-HW13-Maria Glushtsova
 //
-//  Created by Admin on 8.07.23.
+//  Created by Admin on 6.08.23.
 //
 
 import UIKit
-import SnapKit
 
-class ViewController: UIViewController {
+class MVCController: UIViewController {
     
-    var model = [Section]()
+    private var model = MVCModel().createModels()
     
-    // MARK: - Outlets
-    
-    private lazy var tableView: UITableView = {
-        let tableView = UITableView(frame: .zero, style: .grouped)
-        
-        tableView.dataSource = self
-        tableView.delegate = self
-        return tableView
-    }()
-    
-    private func registerCelll() {
-        tableView.register(SettingsTableViewCell.self,
-                           forCellReuseIdentifier: SettingsTableViewCell.identifier)
-        tableView.register(SwitchTableViewCell.self,
-                           forCellReuseIdentifier: SwitchTableViewCell.identifier)
+    private var mvcView: MVCView? {
+        guard isViewLoaded else { return nil }
+        return view as? MVCView
     }
-    
-    // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        setupView()
-        registerCelll()
-        setupHierarchy()
-        setupLayout()
-        configure()
-    }
-    
-    // MARK: - Setup
-    
-    private func setupView() {
-        view.backgroundColor = UIColor.white
-        title = "Настройки"
-        navigationController?.navigationBar.prefersLargeTitles = true
-    }
-    
-    private func setupHierarchy() {
-        view.addSubview(tableView)
-    }
-    
-    private func setupLayout() {
-        tableView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
-        }
+        configureView()
+        view = MVCView()
+        mvcView?.tableView.dataSource = self
+        mvcView?.tableView.delegate = self
     }
 }
 
-extension ViewController: UITableViewDelegate {
+private extension MVCController {
     
+    func configureView() {
+        title = "Настройки"
+        navigationController?.navigationBar.prefersLargeTitles = true
+    }
+}
+
+extension MVCController: UITableViewDelegate {
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        let viewController = DetailedSettingsViewViewController()
+
+        let viewController = DetailedSettingsViewController()
         tableView.deselectRow(at: indexPath, animated: true)
         navigationController?.pushViewController(viewController, animated: true)
-        
+
         let cellType = model[indexPath.section].options[indexPath.row]
-        
+
         switch cellType {
         case .staticCell(model: let model):
             model.handler()
@@ -79,7 +52,7 @@ extension ViewController: UITableViewDelegate {
     }
 }
 
-extension ViewController: UITableViewDataSource {
+extension MVCController: UITableViewDataSource {
         
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         45
@@ -94,7 +67,7 @@ extension ViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
+                    
         let cellType = model[indexPath.section].options[indexPath.row]
         
         switch cellType {
@@ -121,4 +94,3 @@ extension ViewController: UITableViewDataSource {
         }
     }
 }
-

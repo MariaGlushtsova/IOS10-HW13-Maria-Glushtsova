@@ -1,5 +1,5 @@
 //
-//  SwitchTableViewCell.swift
+//  SettingsTableViewCell.swift
 //  IOS10-HW13-Maria Glushtsova
 //
 //  Created by Admin on 8.07.23.
@@ -8,10 +8,10 @@
 import UIKit
 import SnapKit
 
-class SwitchTableViewCell: UITableViewCell {
+class SettingsTableViewCell: UITableViewCell {
     
-    static let identifier = "SwitchTableViewCell"
-    
+    static let identifier = "SettingTableViewCell"
+
     // MARK: - Outlets
 
     private let iconImage: UIImageView = {
@@ -28,12 +28,12 @@ class SwitchTableViewCell: UITableViewCell {
         label.font = UIFont.systemFont(ofSize: 15, weight: .regular)
         return label
     }()
-
-    private let switchView: UISwitch = {
-        let settingsSwitch = UISwitch()
-        settingsSwitch.onTintColor = .systemGreen
-        settingsSwitch.sizeToFit()
-        return settingsSwitch
+    
+    private let text: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 15, weight: .regular)
+        label.textColor = .systemGray
+        return label
     }()
     
     // MARK: - Initializers
@@ -54,19 +54,18 @@ class SwitchTableViewCell: UITableViewCell {
     
     // MARK: - Setup
     
-    public func configure(with model: SettingsSwitchOptionModel) {
+    func configure(with model: SettingsOptionModel) {
         iconImage.image = model.iconImage
         name.text = model.name.rawValue
-        switchView.isOn = model.isOn
-       
+        text.text = model.text
     }
 
     private func setupHierarchy() {
         contentView.addSubview(iconImage)
         contentView.addSubview(name)
-        contentView.addSubview(switchView)
+        contentView.addSubview(text)
     }
-    
+
     private func setupLayout() {
 
         iconImage.snp.makeConstraints { make in
@@ -82,14 +81,13 @@ class SwitchTableViewCell: UITableViewCell {
             make.left.equalTo(iconImage).offset(40)
         }
 
-        switchView.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(5)
+        text.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(6)
             make.bottom.equalToSuperview().offset(-5)
             make.right.equalToSuperview().offset(-10)
         }
-
     }
-
+    
     // MARK: - Reuse
 
     override func prepareForReuse() {
@@ -97,9 +95,6 @@ class SwitchTableViewCell: UITableViewCell {
         self.accessoryType = .none
         iconImage.image = nil
         name.text = nil
-        switchView.isOn = false
+        text.text = nil
     }
-
 }
-
-

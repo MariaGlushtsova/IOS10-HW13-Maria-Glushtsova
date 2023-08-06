@@ -1,16 +1,14 @@
 //
-//  DetailedSettingsViewViewController.swift
+//  DetailedSettingsView.swift
 //  IOS10-HW13-Maria Glushtsova
 //
-//  Created by Admin on 9.07.23.
+//  Created by Admin on 6.08.23.
 //
 
 import UIKit
 import SnapKit
 
-class DetailedSettingsViewViewController: UIViewController {
-    
-    var model = [Section]()
+class DetailedSettingsView: UIView {
     
     // MARK: - Outlets
 
@@ -28,10 +26,19 @@ class DetailedSettingsViewViewController: UIViewController {
         return label
     }()
     
-    // MARK: - Lifecycle
+    //MARK: -> Initial
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    init() {
+        super.init(frame: .zero)
+        commonInit()
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        commonInit()
+    }
+    
+    private func commonInit() {
         setupView()
         setupHierarchy()
         setupLayout()
@@ -40,12 +47,12 @@ class DetailedSettingsViewViewController: UIViewController {
     // MARK: - Setup
     
     private func setupView() {
-        view.backgroundColor = .systemGray3
+        backgroundColor = .systemGray3
     }
     
     private func setupHierarchy() {
-        view.addSubview(congratsImage)
-        view.addSubview(label)
+        addSubview(congratsImage)
+        addSubview(label)
     }
     
     private func setupLayout() {

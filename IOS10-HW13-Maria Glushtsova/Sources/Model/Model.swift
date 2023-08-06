@@ -48,10 +48,10 @@ enum SettingsText: String {
     case homeScreen = "Экран «Домой»"
 }
 
-extension ViewController {
+final class MVCModel {
     
-    func configure() {
-        model.append(Section(title: "", options: [
+    func createModels() -> [Section] {
+        return [Section(title: "", options: [
             .switchCell(
                 model: SettingsSwitchOptionModel(
                     iconImage: UIImage(named: "Plane"),
@@ -94,10 +94,8 @@ extension ViewController {
                     handler: { print( "did tappped VpnSwitch" ) },
                     isOn: true)
             ),
-            
-        ]))
-        
-        model.append(Section(title: "", options: [
+        ]),
+        Section(title: "", options: [
             .staticCell(
                 model: SettingsOptionModel(
                     iconImage: UIImage(named: "Notifications"),
@@ -126,9 +124,8 @@ extension ViewController {
                     text: "",
                     handler: { print( "did tappped ScreenTime" ) })
             ),
-        ]))
-        
-        model.append(Section(title: "", options: [
+        ]),
+        Section(title: "", options: [
             .staticCell(
                 model: SettingsOptionModel(
                     iconImage: UIImage(named: "Settings"),
@@ -157,7 +154,7 @@ extension ViewController {
                     text: "",
                     handler: { print( "did tappped HomeScreen" ) })
             ),
-        ]))
+        ])]
     }
 }
 
